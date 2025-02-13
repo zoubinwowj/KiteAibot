@@ -18,26 +18,31 @@ npm（Node 包管理器）
 
 克隆仓库：
 
+```bash
 git clone https://github.com/zoubinwowj/KiteAibot.git
 cd KiteAibot
+```
 
 安装依赖：
 
+```bash
 npm install
-
+```
 
 📝 配置
 （可选）创建一个 proxies.txt 文件以支持代理：
 
+```bash
 http://user:pass@host:port
 socks5://user:pass@host:port
-
+```
 
 🚀 使用方法
 运行机器人：
 
+```bash
 npm run start
-
+```
 
 ⚠️ 声明
 此机器人仅供教育用途。请自行承担风险，确保遵守 Kite AI 的服务条款。
