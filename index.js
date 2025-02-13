@@ -67,7 +67,7 @@ async function loadQuestions() {
     try {
         const data = await fs.readFile('questions.json', 'utf8');
         const questions = JSON.parse(data);
-        if (!Array.isArray(questions)) { // 修正右括号的位置
+        if (!Array.isArray(questions)) { 
             throw new Error('questions.json 文件格式不正确，应为问题数组');
         }
         return questions;
@@ -137,7 +137,7 @@ class WalletSession {
         this.statistics.lastInteractionTime = new Date();
         if (success) {
             this.statistics.successfulInteractions++;
-            this.statistics.totalPoints += 10; // 每次成功交互的积分
+            this.statistics.totalPoints += 10; 
         } else {
             this.statistics.failedInteractions++;
         }
@@ -377,10 +377,10 @@ class KiteAIAutomation {
                     this.logMessage('⚠️', '交互记录失败', 'red');
                 }
 
-                // 更新本次交互的统计信息
+                
                 this.session.updateStatistics(AI_ENDPOINTS[endpoint].name, interactionSuccess);
                 
-                // 每次交互后显示当前统计信息
+                
                 this.session.printStatistics();
 
                 const delay = Math.random() * 2 + 1;
@@ -404,7 +404,7 @@ class KiteAIAutomation {
 async function main() {
     console.clear();
     
-    // 显示初始注册信息
+    
     console.log(`${chalk.cyan('📝 先注册:')} ${chalk.green('https://testnet.gokite.ai?r=WjYc6SjY')}`);
     console.log(`${chalk.yellow('💡 随机生成1000个最新问题完毕。')}\n`);
     console.log(chalk.magenta('按任意键继续...'));
@@ -414,23 +414,23 @@ async function main() {
     
     console.log(banner);
     
-    // 加载钱包和代理
+    
     const wallets = await loadWallets();
     const proxyList = await loadProxies();
     
     console.log(`${chalk.cyan('📊 已加载:')} ${chalk.green(wallets.length)} 个钱包和 ${chalk.green(proxyList.length)} 个代理\n`);
     
-    // 为每个钱包创建实例并分配唯一的会话 ID
+    
     const instances = wallets.map((wallet, index) => 
         new KiteAIAutomation(wallet, proxyList, index + 1)
     );
     
-    // 显示初始统计信息标题
+    
     console.log(chalk.cyan('\n════════════════════════'));
     console.log(chalk.cyan('🤖 启动所有会话'));
     console.log(chalk.cyan('════════════════════════\n'));
     
-    // 运行所有实例
+    
     try {
         await Promise.all(instances.map(instance => instance.run()));
     } catch (error) {
@@ -438,13 +438,13 @@ async function main() {
     }
 }
 
-// 处理进程终止
+
 process.on('SIGINT', () => {
-    console.log(`\n${chalk.yellow('🛑 正在优雅地关闭...')}`);
+    console.log(`\n${chalk.yellow('🛑 正在关闭交互系统...')}`);
     process.exit(0);
 });
 
-// 全局错误处理
+
 process.on('unhandledRejection', (error) => {
     console.error(`\n${chalk.red('❌ 未处理的拒绝:')} ${error.message}`);
 });
