@@ -56,5 +56,3 @@ for (let i = 0; i < targetNumber; i++) {
 
 // 将问题列表保存为 JSON 文件
 fs.writeFileSync(outputFilePath, JSON.stringify(questions, null, 4), 'utf8');
-
-console.log(`1000条问题已生成完毕`);

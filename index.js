@@ -404,15 +404,9 @@ class KiteAIAutomation {
 async function main() {
     console.clear();
     
-    
+    console.log(banner);
     console.log(`${chalk.cyan('📝 先注册:')} ${chalk.green('https://testnet.gokite.ai?r=WjYc6SjY')}`);
     console.log(`${chalk.yellow('💡 随机生成1000个最新问题完毕。')}\n`);
-    console.log(chalk.magenta('按任意键继续...'));
-    
-    await waitForKeyPress();
-    console.clear();
-    
-    console.log(banner);
     
     
     const wallets = await loadWallets();
