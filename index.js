@@ -405,8 +405,8 @@ async function main() {
     console.clear();
     
     // 显示初始注册信息
-    console.log(`${chalk.cyan('📝 先注册:')} ${chalk.green('https://testnet.gokite.ai?r=kxsQ3byj')}`);
-    console.log(`${chalk.yellow('💡 如有问题，请加入我们的频道')}\n`);
+    console.log(`${chalk.cyan('📝 先注册:')} ${chalk.green('https://testnet.gokite.ai?r=WjYc6SjY')}`);
+    console.log(`${chalk.yellow('💡 随机生成1000个最新问题完毕。')}\n`);
     console.log(chalk.magenta('按任意键继续...'));
     
     await waitForKeyPress();
