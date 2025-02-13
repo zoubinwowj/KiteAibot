@@ -5,6 +5,8 @@ import fs from 'fs/promises';
 import { banner } from './banner.js';
 import { SocksProxyAgent } from 'socks-proxy-agent';
 import { HttpsProxyAgent } from 'https-proxy-agent';
+import './question.js';
+
 
 const waitForKeyPress = async () => {
     process.stdin.setRawMode(true);
